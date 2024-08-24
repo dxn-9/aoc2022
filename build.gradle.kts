@@ -38,7 +38,7 @@ abstract class Scaffold : DefaultTask() {
             import utils.*
             
             fun main() {
-               val sampleText = readFile("day${day.get()}/SampleInput")
+               val sample = readFile("day${day.get()}/SampleInput")
                val input = readFile("day${day.get()}/Input")
             }
             
@@ -46,7 +46,9 @@ abstract class Scaffold : DefaultTask() {
             )
         }
 
-        // Open the created file in Idea
+        // Open the created files in Idea
+        ProcessBuilder("idea", "$resource/SampleInput").start()
+        ProcessBuilder("idea", "$resource/Input").start()
         ProcessBuilder("idea", "$source/Solution.kt").start()
 
 
