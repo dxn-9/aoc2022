@@ -46,10 +46,14 @@ abstract class Scaffold : DefaultTask() {
             )
         }
 
+        try {
         // Open the created files in Idea
         ProcessBuilder("idea", "$resource/SampleInput").start()
         ProcessBuilder("idea", "$resource/Input").start()
         ProcessBuilder("idea", "$source/Solution.kt").start()
+        } catch(e: Exception) {
+            println("Please open the files in Idea manually.")
+        }
 
 
     }
