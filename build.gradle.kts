@@ -47,12 +47,15 @@ abstract class Scaffold : DefaultTask() {
         }
 
         try {
-        // Open the created files in Idea
-        ProcessBuilder("idea", "$resource/SampleInput").start()
-        ProcessBuilder("idea", "$resource/Input").start()
-        ProcessBuilder("idea", "$source/Solution.kt").start()
-        } catch(e: Exception) {
-            println("Please open the files in Idea manually.")
+            // Open the created files in Idea (linux/osx)
+            ProcessBuilder("idea", "$resource/SampleInput").start()
+            ProcessBuilder("idea", "$resource/Input").start()
+            ProcessBuilder("idea", "$source/Solution.kt").start()
+        } catch (e: Exception) {
+            // If i'm on windows
+            ProcessBuilder("idea.cmd", "$resource/SampleInput").start()
+            ProcessBuilder("idea.cmd", "$resource/Input").start()
+            ProcessBuilder("idea.cmd", "$source/Solution.kt").start()
         }
 
 
